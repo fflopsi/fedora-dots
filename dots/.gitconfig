@@ -1,0 +1,10 @@
+[user]
+	name = fflopsi
+	email = florian.l.frauenfelder@gmail.com
+	signingkey = /home/flopsi/.ssh/github.pub
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgSign = true
