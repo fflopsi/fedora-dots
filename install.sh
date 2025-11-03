@@ -19,7 +19,20 @@ declare -A DOTFILES=(
 for file in "${!DOTFILES[@]}"; do
     src="$SCRIPT_DIR/dots/$file"
     dest="${DOTFILES[$file]}"
-    ln -sf "$src" "$dest"
+    ln -vsf "$src" "$dest"
 done
+
+echo "Done"
+
+read -p "Copy monitor configuration to use for gdm greeter? (y/N): " confirm && [[ $confirm =~ ^[yY](es)?$ ]] || exit 1
+
+sudo cp -v ~/.config/monitors.xml ~gdm/seat0/config/
+
+echo "Done"
+
+read -p "Copy theme changing script? (y/N): " confirm && [[ $confirm =~ ^[yY](es)?$ ]] || exit 1
+
+mkdir -p "$HOME/.local/bin"
+cp -v "$SCRIPT_DIR/files/change-theme" "$HOME/.local/bin/change-theme"
 
 echo "Done"
