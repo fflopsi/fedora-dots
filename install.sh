@@ -1,39 +1,38 @@
 #!/usr/bin/env bash
 
-echo "This will install all the dotfiles from this repository. It will ERASE existing files:"
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+echo -e "\nThis will link all the dotfiles from this repository. It will ERASE existing files:"
 echo "~/.bashrc"
 echo "~/.inputrc"
 echo "~/.gitconfig"
-read -p "Continue? (y/N): " confirm && [[ $confirm =~ ^[yY](es)?$ ]] || exit 1
-
-SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
-echo "Linking dotfiles..."
-
-declare -A DOTFILES=(
+echo "~/.editorconfig"
+read -p "Continue? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  echo "Linking dotfiles..."
+  declare -A DOTFILES=(
     [".bashrc"]="$HOME/.bashrc"
     [".inputrc"]="$HOME/.inputrc"
     [".gitconfig"]="$HOME/.gitconfig"
     [".editorconfig"]="$HOME/.editorconfig"
-)
-
-for file in "${!DOTFILES[@]}"; do
+  )
+  for file in "${!DOTFILES[@]}"; do
     src="$SCRIPT_DIR/dots/$file"
     dest="${DOTFILES[$file]}"
     ln -vsf "$src" "$dest"
-done
+  done
+  echo -e "Done\n"
+fi
 
-echo "Done"
+read -p "Copy monitor configuration to use for gdm greeter? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  sudo cp -v ~/.config/monitors.xml ~gdm/seat0/config/
+  echo -e "Done\n"
+fi
 
-read -p "Copy monitor configuration to use for gdm greeter? (y/N): " confirm && [[ $confirm =~ ^[yY](es)?$ ]] || exit 1
-
-sudo cp -v ~/.config/monitors.xml ~gdm/seat0/config/
-
-echo "Done"
-
-read -p "Copy theme changing script? (y/N): " confirm && [[ $confirm =~ ^[yY](es)?$ ]] || exit 1
-
-mkdir -p "$HOME/.local/bin"
-cp -v "$SCRIPT_DIR/files/change-theme" "$HOME/.local/bin/change-theme"
-
-echo "Done"
+read -p "Link theme changing script? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  mkdir -p "$HOME/.local/bin"
+  ln -vsf "$SCRIPT_DIR/files/change-theme" "$HOME/.local/bin/change-theme"
+  echo -e "Done\n"
+fi
