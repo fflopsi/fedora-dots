@@ -36,3 +36,8 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
   ln -vsf "$SCRIPT_DIR/files/change-theme" "$HOME/.local/bin/change-theme"
   echo -e "Done\n"
 fi
+
+read -p "Install dnf packages? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  sudo dnf install $(cat "$SCRIPT_DIR/apps/dnf")
+fi
