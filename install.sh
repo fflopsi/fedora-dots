@@ -14,6 +14,7 @@ declare -A DOTFILES=(
     [".bashrc"]="$HOME/.bashrc"
     [".inputrc"]="$HOME/.inputrc"
     [".gitconfig"]="$HOME/.gitconfig"
+    [".editorconfig"]="$HOME/.editorconfig"
 )
 
 for file in "${!DOTFILES[@]}"; do
