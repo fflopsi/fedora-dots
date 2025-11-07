@@ -34,6 +34,8 @@ alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias ip="ip --color=auto"
 
+export EDITOR=/usr/bin/micro
+
 mkdircd () { mkdir -p $1 && cd $1; }
 udots () {
     OLD="$(pwd)"
