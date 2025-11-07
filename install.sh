@@ -41,3 +41,9 @@ read -p "Install dnf packages? (y/N): " confirm
 if [[ $confirm =~ ^[yY](es)?$ ]]; then
   sudo dnf install $(cat "$SCRIPT_DIR/apps/dnf")
 fi
+
+read -p "Install flatpaks? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  flatpak install fedora com.github.tchx84.Flatseal
+  flatpak install flathub $(cat "$SCRIPT_DIR/apps/flatpak")
+fi
