@@ -21,6 +21,7 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
     dest="${DOTFILES[$file]}"
     ln -vsf "$src" "$dest"
   done
+  source "$HOME/.bashrc"
   echo -e "Done\n"
 fi
 
