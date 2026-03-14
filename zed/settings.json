@@ -1,0 +1,82 @@
+{
+  "base_keymap": "JetBrains",
+  "theme": {
+    "mode": "system",
+    "light": "Zedwaita Light",
+    "dark": "Zedwaita Dark"
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "off",
+  "tab_size": 2,
+  "colorize_brackets": true,
+  "soft_wrap": "editor_width",
+  "sticky_scroll": {
+    "enabled": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "title_bar": {
+    "show_branch_icon": true
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "project_panel": {
+    "hide_root": true
+  },
+  "git_panel": {
+    "tree_view": true
+  },
+  "languages": {
+    "JavaScript": {
+      "prettier": {
+        "allowed": true,
+        "singleQuote": true,
+        "jsxSingleQuote": true
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      },
+      "prettier": {
+        "allowed": true,
+        "singleQuote": true,
+        "jsxSingleQuote": true
+      }
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      },
+      "prettier": {
+        "allowed": true,
+        "singleQuote": true,
+        "jsxSingleQuote": true
+      }
+    }
+  },
+  "auto_install_extensions": {
+    "git-firefly": true,
+    "basher": true,
+    "ini": true,
+    "env": true,
+    "latex": true,
+    "typst": true,
+    "html": true,
+    "svelte": true,
+    "java": true,
+    "kotlin": true,
+    "xml": true,
+    "toml": true,
+    "csv": true,
+    "log": true,
+    "scss": true,
+    "r": true,
+    "zedwaita": true
+  }
+}

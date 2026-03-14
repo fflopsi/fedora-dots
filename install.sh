@@ -57,3 +57,18 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
   flatpak install fedora com.github.tchx84.Flatseal
   flatpak install flathub $(cat "$SCRIPT_DIR/apps/flatpak")
 fi
+
+read -p "Link Zed configuration? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  mkdir -p "$HOME/.var/app/dev.zed.Zed/config/zed"
+  declare -A ZEDFILES=(
+    ["settings.json"]="$HOME/.var/app/dev.zed.Zed/config/zed/settings.json"
+    ["keymap.json"]="$HOME/.var/app/dev.zed.Zed/config/zed/keymap.json"
+  )
+  for file in "${!ZEDFILES[@]}"; do
+    src="$SCRIPT_DIR/zed/$file"
+    dest="${ZEDFILES[$file]}"
+    ln -vsf "$src" "$dest"
+  done
+  echo -e "Done\n"
+fi
