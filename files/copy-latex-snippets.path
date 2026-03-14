@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch LaTeX snippet files
+
+[Path]
+PathModified=%h/Documents/Programming/latex-snippets/latex-suite-snippets.js
+PathModified=%h/Documents/Programming/latex-snippets/latex-suite-variables.js
+
+[Install]
+WantedBy=default.target

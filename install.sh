@@ -38,6 +38,15 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
   echo -e "Done\n"
 fi
 
+read -p "Link and activate systemd service for copying LaTeX snippets? (y/N): " confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  systemctl --user link "$SCRIPT_DIR/files/copy-latex-snippets.service"
+  systemctl --user link "$SCRIPT_DIR/files/copy-latex-snippets.path"
+  systemctl --user daemon-reload
+  systemctl --user enable --now copy-latex-snippets.path
+  echo -e "Done\n"
+fi
+
 read -p "Install dnf packages? (y/N): " confirm
 if [[ $confirm =~ ^[yY](es)?$ ]]; then
   sudo dnf install $(cat "$SCRIPT_DIR/apps/dnf")
