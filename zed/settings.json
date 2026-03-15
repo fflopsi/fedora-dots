@@ -10,6 +10,9 @@
   "tab_size": 2,
   "colorize_brackets": true,
   "soft_wrap": "editor_width",
+  "minimap": {
+    "show": "auto"
+  },
   "sticky_scroll": {
     "enabled": true
   },
