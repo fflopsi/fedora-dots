@@ -25,6 +25,17 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
   echo -e "Done\n"
 fi
 
+read -p "Apply Gnome settings? (y/N)" confirm
+if [[ $confirm =~ ^[yY](es)?$ ]]; then
+  dconf load / < "$SCRIPT_DIR/gnome/interface.conf"
+  dconf load / < "$SCRIPT_DIR/gnome/keybinds.conf"
+  dconf load / < "$SCRIPT_DIR/gnome/peripherals.conf"
+  dconf load / < "$SCRIPT_DIR/gnome/nautilus.conf"
+  dconf load / < "$SCRIPT_DIR/gnome/text-editor.conf"
+  dconf load / < "$SCRIPT_DIR/gnome/extensions/clipboard-indicator.conf"
+  dconf load / < "$SCRIPT_DIR/gnome/extensions/gnome-ui-tune.conf"
+fi
+
 read -p "Copy monitor configuration to use for gdm greeter? (y/N): " confirm
 if [[ $confirm =~ ^[yY](es)?$ ]]; then
   sudo cp -v ~/.config/monitors.xml ~gdm/seat0/config/
