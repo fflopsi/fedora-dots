@@ -25,7 +25,7 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
   echo -e "Done\n"
 fi
 
-read -p "Apply Gnome settings? (y/N)" confirm
+read -p "Apply Gnome settings? (y/N): " confirm
 if [[ $confirm =~ ^[yY](es)?$ ]]; then
   FILES=(
     "interface.conf"
