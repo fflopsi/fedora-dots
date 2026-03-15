@@ -7,6 +7,7 @@ echo "~/.bashrc"
 echo "~/.inputrc"
 echo "~/.gitconfig"
 echo "~/.editorconfig"
+echo "~/.config/user-dirs.dirs"
 read -p "Continue? (y/N): " confirm
 if [[ $confirm =~ ^[yY](es)?$ ]]; then
   echo "Linking dotfiles..."
@@ -15,6 +16,7 @@ if [[ $confirm =~ ^[yY](es)?$ ]]; then
     [".inputrc"]="$HOME/.inputrc"
     [".gitconfig"]="$HOME/.gitconfig"
     [".editorconfig"]="$HOME/.editorconfig"
+    ["user-dirs.dirs"]="$HOME/.config/user-dirs.dirs"
   )
   for file in "${!DOTFILES[@]}"; do
     src="$SCRIPT_DIR/dots/$file"
