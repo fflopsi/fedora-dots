@@ -1,4 +1,15 @@
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "base_keymap": "JetBrains",
   "theme": {
     "mode": "system",
@@ -22,16 +33,18 @@
     }
   },
   "title_bar": {
-    "show_branch_icon": true
+    "show_branch_status_icon": true
   },
   "tabs": {
     "file_icons": true,
     "git_status": true
   },
   "project_panel": {
+    "dock": "left",
     "hide_root": true
   },
   "git_panel": {
+    "dock": "left",
     "tree_view": true
   },
   "languages": {
