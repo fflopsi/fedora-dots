@@ -78,10 +78,10 @@ fi
 
 read -p "Link Zed configuration? (y/N): " confirm
 if [[ $confirm =~ ^[yY](es)?$ ]]; then
-  mkdir -p "$HOME/.var/app/dev.zed.Zed/config/zed"
+  mkdir -p "$HOME/.config/zed"
   declare -A ZEDFILES=(
-    ["settings.json"]="$HOME/.var/app/dev.zed.Zed/config/zed/settings.json"
-    ["keymap.json"]="$HOME/.var/app/dev.zed.Zed/config/zed/keymap.json"
+    ["settings.json"]="$HOME/.config/zed/settings.json"
+    ["keymap.json"]="$HOME/.config/zed/keymap.json"
   )
   for file in "${!ZEDFILES[@]}"; do
     src="$SCRIPT_DIR/zed/$file"
