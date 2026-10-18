@@ -1,4 +1,7 @@
 {
+  "gutter": {
+    "folds": true
+  },
   "outline_panel": {
     "dock": "left"
   },
